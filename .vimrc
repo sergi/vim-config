@@ -56,7 +56,6 @@ call pathogen#runtime_append_all_bundles()
 
 "syntax enable
 "set background=light
-"colorscheme solarized
 
 set showmode                      " Display the mode you're in.
 set guifont=Menlo:h17
@@ -109,7 +108,7 @@ set undofile " tells Vim to create <FILENAME>.un~ files whenever you edit a file
 
 nnoremap <C-j> o<Esc>k$
 set wildignore+=vendor,log,tmp,*.swp,*.o,*.obj,*.pyc,*.swc,*.DS_STORE,*.bkp
-set lines=60 columns=180
+"set lines=60 columns=180
 nnoremap <F4> :buffers<CR>:buffer<space>
 
 "Remove MacVim's toolbar
@@ -138,26 +137,8 @@ iab funciton function
 " for mistyping :w as :W
 command! W :w
 
-"
 " Command-mode completion
-"
-
-" IMPORTANT: Uncomment one of the following lines to force
-" using 256 colors (or 88 colors) if your terminal supports it,
-" but does not automatically use 256 colors by default.
-"set t_Co=256
-"set t_Co=88
-if (&t_Co == 256 || &t_Co == 88) && !has('gui_running') &&
-  \ filereadable(expand("$HOME/.vim/bundle/guicolorscheme/plugin/guicolorscheme.vim"))
-  " Use the guicolorscheme plugin to makes 256-color or 88-color
-  " terminal use GUI colors rather than cterm colors.
-  runtime! bundle/guicolorscheme/plugin/guicolorscheme.vim
-  GuiColorScheme mayansmoke
-else
-  " For 8-color 16-color terminals or for gvim, just use the
-  " regular :colorscheme command.
-  colorscheme mayansmoke
-endif
+colorscheme mayansmoke
 
 " Rainbox Parentheses {{{
 nnoremap <leader>R :RainbowParenthesesToggle<cr>
@@ -182,7 +163,6 @@ let g:rbpt_colorpairs = [
 let g:rbpt_max = 16
 
 set laststatus=2 " Always show the statusline
-let g:Powerline_symbols = 'fancy'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " OPEN FILES IN DIRECTORY OF CURRENT FILE
@@ -196,7 +176,3 @@ map <leader>v :view %%
 " Insert the current time
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 command! InsertTime :normal a<c-r>=strftime('%F %H:%M:%S.0 %z')<cr>
-
-" Settings for VimClojure
-let g:clj_highlight_builtins=1      " Highlight Clojure's builtins
-let g:clj_paren_rainbow=1           " Rainbow parentheses'!
